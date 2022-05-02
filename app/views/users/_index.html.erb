@@ -1,3 +1,4 @@
+<% if users.exists? %>
 <table class='table'>
   <thead>
     <tr>
@@ -11,8 +12,13 @@
       <tr>
         <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
         <td><%= user.name %></td>
+        <%= render 'relationships/follow_list', user: user %>
+        <td><%= render 'relationships/btn', user: user %></td>
         <td><%= link_to 'Show', user, class: "user_#{user.id}" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<% else %>
+  <p>ユーザーはいません</p>
+<% end %>
