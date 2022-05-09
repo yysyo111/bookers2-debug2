@@ -18,6 +18,7 @@
   </tr>
 </table>
 
+<% if user.name != "guestuser" %>
 <div class='row'>
   <% if current_user != user %>
     <%= render 'relationships/btn', user: user %>
@@ -27,5 +28,5 @@
     <% end %>
   <% end %>
 </div>
-
+<% end %>
 
